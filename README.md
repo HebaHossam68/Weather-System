@@ -1,4 +1,4 @@
-# Weather-System
+# Weather System
 This project measures status of weather.
 
 # Components
