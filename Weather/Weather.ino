@@ -389,7 +389,7 @@ void setup()
 
   if (!bmp.begin()) {
 	Serial.println("Could not find a valid BMP085/BMP180 sensor, check wiring!");
-	// while (1) {}
+	
   }
 
   // SMTP setup
@@ -447,5 +447,5 @@ void loop()
   }
    
 
-  delay(10000); // Wait for 5 seconds before writing the next data
+  delay(10000); 
 }
