@@ -1,5 +1,5 @@
 # Weather-System
-This project measure status of weather.
+This project measures status of weather.
 
 # Components
 We used DHT11 sensor to measure Temperature and Humidity of weather , BMP180  sensor to measure Pressure and calculate Altitude from sea level ,SD card module to log readings from sensors , ESP32 to support these sensors ,Bread Board and multiple wires .  
