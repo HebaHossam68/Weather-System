@@ -26,8 +26,8 @@ String Pressure;
 String Altitude;
 float temperatureThreshold = 0.0;
 
-const char *ssid = "WE_E9FBF0";
-const char *password = "jbv04331";
+const char *ssid = "Heba";
+const char *password = "123456789";
 #define SD_CS 5
 String dataMessage;
 WiFiUDP ntpUDP;
@@ -36,7 +36,7 @@ NTPClient timeClient(ntpUDP);
 // SMTP configuration
 #define emailSenderAccount "iotproject554@gmail.com"
 #define emailSenderPassword "lyqt ywhm zguo kcqd"
-#define emailRecipient "osaama.alli.20@gmail.com"
+#define emailRecipient "hheba7308@gmail.com"
 #define smtpServer "smtp.gmail.com"
 #define smtpServerPort 465
 #define emailSubject "ESP32 Alert"
@@ -389,7 +389,7 @@ void setup()
 
   if (!bmp.begin()) {
 	Serial.println("Could not find a valid BMP085/BMP180 sensor, check wiring!");
-	
+	// while (1) {}
   }
 
   // SMTP setup
@@ -425,6 +425,7 @@ void setup()
   temperatureThreshold = newValue;
 
   // Print the updated threshold value
+  Serial.println("Updated temperatureThreshold: " + String(temperatureThreshold));
 
   // Do something with the received value
 });
@@ -447,5 +448,5 @@ void loop()
   }
    
 
-  delay(10000); 
+  delay(10000); // Wait for 5 seconds before writing the next data
 }
