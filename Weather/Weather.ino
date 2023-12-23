@@ -35,7 +35,7 @@ NTPClient timeClient(ntpUDP);
 
 // SMTP configuration
 #define emailSenderAccount "iotproject554@gmail.com"
-#define emailSenderPassword "lyqt ywhm zguo kcqd"
+#define emailSenderPassword "ompe ehyc ibdt spei"
 #define emailRecipient "hheba7308@gmail.com"
 #define smtpServer "smtp.gmail.com"
 #define smtpServerPort 465
@@ -53,7 +53,7 @@ String readDHTTemperature() {
   }
 }
 
-String readDHTHumidity() {
+String readDHTHumidity() {//analog
   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
   float h = dht.readHumidity();
   if (isnan(h)) {
@@ -65,7 +65,7 @@ String readDHTHumidity() {
   }
 }
 
-String readPressure() {
+String readPressure() {//analog
   // Sensor readings may also be up to 2 seconds 'old' (it's a very slow sensor)
   float p = bmp.readPressure();
   if (isnan(p)) {
@@ -78,7 +78,7 @@ String readPressure() {
   }
 }
 
-String readAltitude() {
+String readAltitude() {//digital
   // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
   float h = bmp.readAltitude(102000);
   if (isnan(h)) {
@@ -345,10 +345,11 @@ void read_bmp()
     
   delay(500);
 }
-
+int x=33;
 void setup()
 {
-
+  pinMode(x,INPUT);
+  pinMode(2,OUTPUT);
   Serial.begin(115200);
   pinMode(DHTPin, INPUT);
   dht.begin();
@@ -446,7 +447,15 @@ void loop()
   {
     sendEmail();
   }
+  //LDR
+   if (digitalRead(x)==HIGH)
+  {
+    digitalWrite(2,HIGH);
+  }
+  else
+  {
+    digitalWrite(2,LOW);
+  }
    
-
   delay(10000); // Wait for 5 seconds before writing the next data
 }
